@@ -27,8 +27,8 @@ url: "omoli822.github.io" # the base hostname & protocol for your site, e.g. htt
 github_username:  omoli822
 
 # Build settings
-# no minima
-# theme: minima
+
+theme: minima
 plugins:
   - jekyll-feed
 
