@@ -23,11 +23,12 @@ email: omoliom@hotmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   this is the west blog of photos advice tech and life
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "omoli822.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  omoli822
 
 # Build settings
-theme: minima
+# no minima
+# theme: minima
 plugins:
   - jekyll-feed
 
