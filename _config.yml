@@ -27,7 +27,7 @@ github_username:  omoli822
 
 # Build settings
 # no minima
-theme: minima
+# theme: minima
 plugins:
   - jekyll-feed
 # new lines
