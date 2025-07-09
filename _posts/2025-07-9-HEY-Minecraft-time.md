@@ -1,6 +1,8 @@
 ---
 layout: post
 title:  "HEY Minecraft time!"
+date: 2025-07-9
+categories: MINECRAFT
 ---
 
 # Welcome
