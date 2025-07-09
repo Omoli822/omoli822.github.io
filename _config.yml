@@ -31,7 +31,7 @@ github_username:  omoli822
 plugins:
   - jekyll-feed
 # new lines
-author: Oliver
+
 
 
 # Exclude from processing.
