@@ -5,4 +5,4 @@ date: 2025-08-20 10:00:00 +0800
 categories: [Wordoftheday]
 tags: [words]
 ---
-the word of the day is llama
+the word of the day is llama i gesssed it
