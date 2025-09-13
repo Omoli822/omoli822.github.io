@@ -1,7 +1,4 @@
 # Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that.
 
 # Site Settings
 title: "The West Blog"
@@ -18,22 +15,13 @@ author:
   email: "omoliom@hotmail.com"
   bio: "Gaming enthusiast, tech explorer, and word puzzle solver. Sharing my journey through Minecraft builds, code adventures, and daily discoveries."
   location: "Australia"
-  avatar: "/assets/images/avatar.jpg"  # You can add your photo here
+  avatar: "/assets/images/avatar.jpg"
   github: "omoli822"
 
-# Build settings - GitHub Pages supported theme
-theme: minima
+# Build settings - No theme, custom Jekyll
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-seo-tag
-
-# Minima specific settings
-minima:
-  skin: auto
-  social_links:
-    github: omoli822
-    email: omoliom@hotmail.com
 
 # Show excerpts on homepage
 show_excerpts: true
@@ -43,16 +31,12 @@ paginate: 5
 paginate_path: "/page:num/"
 
 # Comments using Utterances (GitHub-based comments)
-utterances:
-  repo: "Omoli822/omoli822.github.io"
-  issue_term: "pathname"
-  theme: "github-light"
-
-# Header pages
-header_pages:
-  - about.md
-  - categories.md
-  - tags.md
+comments:
+  provider: utterances
+  utterances:
+    repo: "Omoli822/omoli822.github.io"
+    issue_term: "pathname"
+    theme: "github-light"
 
 # Timezone
 timezone: Australia/Perth
@@ -65,12 +49,6 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-# Collections
-collections:
-  authors:
-    output: true
-    permalink: /:collection/:name/
-
 # Defaults
 defaults:
   - scope:
@@ -81,23 +59,11 @@ defaults:
       author: "Omoli822"
       show_date: true
       comments: true
-  - scope:
-      path: ""
-      type: "authors"
-    values:
-      layout: "author"
 
 # Exclude from processing
 exclude:
   - .sass-cache/
   - .jekyll-cache/
-  - gemfiles/
   - Gemfile
   - Gemfile.lock
-  - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
   - README.md
-  - LICENSE.txt
