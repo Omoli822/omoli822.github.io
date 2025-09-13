@@ -1,27 +1,86 @@
 ---
 layout: default
 ---
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
+<article class="post">
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%B %d, %Y" }}
       </time>
-      {%- if page.author -%}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
-      {%- endif -%}</p>
+      {% if page.author %}
+      <span class="post-author">by {{ page.author }}</span>
+      {% endif %}
+      {% if page.categories.size > 0 %}
+      <div class="post-categories">
+        Categories: 
+        {% for category in page.categories %}
+        <span class="category">{{ category }}</span>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% if page.tags.size > 0 %}
+      <div class="post-tags">
+        Tags: 
+        {% for tag in page.tags %}
+        <span class="tag">#{{ tag }}</span>{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
   </header>
 
-  <div class="post-content e-content" itemprop="articleBody">
+  <div class="post-content">
     {{ content }}
   </div>
 
-  {%- if site.disqus.shortname -%}
-    {%- include disqus_comments.html -%}
-  {%- endif -%}
+  <!-- Author Profile Section -->
+  {% if site.author %}
+  <div class="author-profile">
+    <div class="author-card">
+      {% if site.author.avatar %}
+      <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }}" class="author-avatar">
+      {% else %}
+      <div class="author-avatar-placeholder">
+        <i class="fas fa-user"></i>
+      </div>
+      {% endif %}
+      <div class="author-info">
+        <h3>About {{ site.author.name }}</h3>
+        <p>{{ site.author.bio }}</p>
+        <div class="author-links">
+          {% if site.author.email %}
+          <a href="mailto:{{ site.author.email }}" title="Email" class="author-link">
+            <i class="fas fa-envelope"></i> Email
+          </a>
+          {% endif %}
+          {% if site.author.github %}
+          <a href="https://github.com/{{ site.author.github }}" title="GitHub" class="author-link">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          {% endif %}
+          {% if site.author.location %}
+          <span class="author-location">
+            <i class="fas fa-map-marker-alt"></i> {{ site.author.location }}
+          </span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
 
-  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+  <!-- Comments Section -->
+  {% if page.comments != false and site.comments.provider == "utterances" %}
+  <div class="comments-section">
+    <h3>Comments</h3>
+    <script src="https://utteranc.es/client.js"
+            repo="{{ site.comments.utterances.repo }}"
+            issue-term="{{ site.comments.utterances.issue_term }}"
+            theme="{{ site.comments.utterances.theme }}"
+            crossorigin="anonymous"
+            async>
+    </script>
+  </div>
+  {% endif %}
 </article>
