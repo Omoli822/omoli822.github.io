@@ -10,13 +10,8 @@ baseurl: ""
 github_username: omoli822
 
 # Author Information
-author:
-  name: "Omoli822"
-  email: "omoliom@hotmail.com"
-  bio: "Gaming enthusiast, tech explorer, and word puzzle solver. Sharing my journey through Minecraft builds, code adventures, and daily discoveries."
-  location: "Australia"
-  avatar: "/assets/images/avatar.jpg"
-  github: "omoli822"
+author: Oliver
+
 
 # Build settings - No theme, custom Jekyll
 plugins:
