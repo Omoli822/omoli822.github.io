@@ -1,173 +1,103 @@
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+# which you are expected to set up once and rarely edit after that.
 
 # Site Settings
 title: "The West Blog"
-title_separator: "-"
-subtitle: "West Blog Life, Tech and Country"
-name: "Omoli822"
 description: >-
   West blog life tech and country - sharing thoughts on gaming, technology, 
   word puzzles, and life experiences.
 url: "https://omoli822.github.io"
 baseurl: ""
-repository: "Omoli822/omoli822.github.io"
-teaser: # path of fallback teaser image
-logo: # path of logo image to display in the masthead
-masthead_title: # overrides the website title displayed in the masthead, use " " for no title
-breadcrumbs: false # true, false (default)
-words_per_minute: 200
+github_username: omoli822
 
-# Site Author
+# Author Information
 author:
-  name             : "Omoli822"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Gaming enthusiast, tech explorer, and word puzzle solver. Sharing my journey through Minecraft builds, code adventures, and daily discoveries."
-  location         : "Australia"
-  email            : "omoliom@hotmail.com"
-  links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:omoliom@hotmail.com"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/omoli822"
+  name: "Omoli822"
+  email: "omoliom@hotmail.com"
+  bio: "Gaming enthusiast, tech explorer, and word puzzle solver. Sharing my journey through Minecraft builds, code adventures, and daily discoveries."
+  location: "Australia"
+  avatar: "/assets/images/avatar.jpg"  # You can add your photo here
+  github: "omoli822"
 
-# Site Footer
-footer:
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/omoli822"
+# Build settings - GitHub Pages supported theme
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
-# Reading Files
-include:
-  - .htaccess
-  - _pages
-exclude:
-  - "*.sublime-project"
-  - "*.sublime-workspace"
-  - vendor
-  - .asset-cache
-  - .bundle
-  - .jekyll-assets-cache
-  - .sass-cache
-  - assets/js/plugins
-  - assets/js/_main.js
-  - assets/js/vendor
-  - Capfile
-  - CHANGELOG
-  - config
-  - Gemfile
-  - Gruntfile.js
-  - gulpfile.js
-  - LICENSE
-  - log
-  - node_modules
-  - package.json
-  - Rakefile
-  - README
-  - tmp
-keep_files:
-  - .git
-  - .svn
-encoding: "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+# Minima specific settings
+minima:
+  skin: auto
+  social_links:
+    github: omoli822
+    email: omoliom@hotmail.com
 
-# Conversion
-markdown: kramdown
-highlighter: rouge
-lsi: false
-excerpt_separator: "\n\n"
-incremental: false
+# Show excerpts on homepage
+show_excerpts: true
 
-# Markdown Processing
-kramdown:
-  input: GFM
-  hard_wrap: false
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-  smart_quotes: lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
+# Pagination
+paginate: 5
+paginate_path: "/page:num/"
 
-# Sass/SCSS
-sass:
-  sass_dir: _sass
-  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+# Comments using Utterances (GitHub-based comments)
+utterances:
+  repo: "Omoli822/omoli822.github.io"
+  issue_term: "pathname"
+  theme: "github-light"
 
-# Outputting
-permalink: /:categories/:title/
-paginate: 5 # amount of posts to show
-paginate_path: /page:num/
+# Header pages
+header_pages:
+  - about.md
+  - categories.md
+  - tags.md
+
+# Timezone
 timezone: Australia/Perth
 
-# Plugins (previously gems:)
-plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jekyll-include-cache
+# Permalink structure
+permalink: /:categories/:year/:month/:day/:title/
 
-# mimic GitHub Pages with --safe
-whitelist:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
-  - jekyll-feed
-  - jekyll-include-cache
+# Markdown settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
-# Archives
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
-
-# HTML Compression
-# - https://jch.penibelst.de/
-compress_html:
-  clippings: all
-  ignore:
-    envs: development
+# Collections
+collections:
+  authors:
+    output: true
+    permalink: /:collection/:name/
 
 # Defaults
 defaults:
-  # _posts
   - scope:
       path: ""
-      type: posts
+      type: "posts"
     values:
-      layout: single
-      author_profile: true
-      read_time: true
+      layout: "post"
+      author: "Omoli822"
+      show_date: true
       comments: true
-      share: true
-      related: true
-  # _pages
   - scope:
-      path: "_pages"
-      type: pages
+      path: ""
+      type: "authors"
     values:
-      layout: single
-      author_profile: true
+      layout: "author"
 
-# Comments
-comments:
-  provider: "utterances"
-  utterances:
-    theme: "github-light"
-    repo: "Omoli822/omoli822.github.io"
-
-# Theme
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - LICENSE.txt
